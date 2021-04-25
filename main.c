@@ -8,17 +8,19 @@ void welcome();
 void admin();
 void user();
 void browse();
+void view_books();
+void search_books();
+
 void add_books();
 void rmv_books();
-void search_books();
-void view_books();
-void all_books();
 void by_name();
 void by_author();
 void by_genre();
 void by_id();
+void all_books();
 void borrow();
 void deposit();
+
 void admin_password();
 void user_password();
 void credit();
@@ -39,8 +41,7 @@ FILE *book_db, *temp;
 
 int main() {    
 	welcome();
-    
-    printf("\n\n\n\n\n");
+    printf("\n\n\n\n");
 	return 0;
 }
 
@@ -99,10 +100,9 @@ void admin() {
         case 3: search_books(); break;
         case 4: rmv_books(); break;
         case 5: welcome(); break;
-        deafult: fflush(stdin); getchar(); admin();
+        default: admin(); break;
     }
 }
-
 void user() {
     system("cls");
     head_er();
@@ -129,7 +129,7 @@ void user() {
         case 3: borrow(); break;
         case 4: deposit(); break;
         case 5: welcome(); break;
-        deafult: user();
+        default: user();
     }
 }
 void browse() {
@@ -161,7 +161,6 @@ void browse() {
         default: welcome();
         }
 }
-
 void add_books() {
     system("cls");
     head_er();
@@ -206,7 +205,7 @@ void add_books() {
     
     fclose(book_db);
     
-    printf("\n\t\t\t\t %d Your entry has been saved ", flag);
+    printf("\n\t\t\t\t  Your entry has been saved ");
     fflush(stdin);
     getch();
     admin();
@@ -275,8 +274,6 @@ void rmv_books() {
                 admin();
             }
     }
-    
-
 void view_books() {
     
     system("cls");
@@ -313,7 +310,6 @@ void search_books() {
         default: search_books();
     }
 }
-
 void all_books() {
    
     system("cls");
@@ -345,7 +341,6 @@ void all_books() {
      printf("\n\t\t---------------------------------");
      printf("---------------------------------------------------------------");
 }
-
 void by_name() {
     system("cls");
     head_er();
@@ -394,13 +389,14 @@ void by_name() {
     printf("\n\t\t\tTry another search?(Y/N): ");
     if(getch()=='y' || getch()=='Y')
     by_name();
+    else view_books();
 }
 void by_author() {
     system("cls");
     head_er();
     char b_author[16];
     int flag = 0;
-    printf("\t\t\t\t\t\t      |---------------|");
+      printf("\t\t\t\t\t\t      |---------------|");
     printf("\n\t\t\t\t\t\t      |  SEARCH BOOKS |");
     printf("\n\t\t\t\t\t\t      |---------------|\n");
     printf("\n\n\t\t\t\tSearch Book By\n");
@@ -537,7 +533,6 @@ void by_id() {
     if(getch()=='y' || getch()=='Y')
     by_id();
 }
-
 void borrow(){
     system("cls");
     head_er();
@@ -663,7 +658,6 @@ void deposit() {
     }
     
 }
-
 void admin_password() {
    
     char username[15]; 
@@ -693,9 +687,10 @@ void admin_password() {
     }
     
     else { 
-    printf("\nMake sure you are Admin\n");
+    printf("\n\t\t\t\t\tMake sure you are Admin\n");
+    getch();
     welcome();
-    
+}
 }
 
 void user_password() {
@@ -737,17 +732,15 @@ void credit() {
     head_er();
     printf("\n\t\t\t\t\t\t\tOur Team Member");
     Sleep(1000);
-    printf("\n\n\t\t\t\t\t\t  Abdul Fattah Mujtabir Samin \n\t\t\t\t\t\t        203-15-3878 PC-A");
+    printf("\n\n\t\t\t\t\t\t  Abdul Fattah Mujtabir Samin \n\t\t\t\t\t\t        203-15-3880 PC-A");
     Sleep(1000);
-    printf("\n\n\t\t\t\t\t\t     Afjal Hossain Shenam \n\t\t\t\t\t\t       203-15-3878 PC-A");
+    printf("\n\n\t\t\t\t\t\t     Afjal Hossain Shenam \n\t\t\t\t\t\t       203-15-3859 PC-A");
     Sleep(1000);
     printf("\n\n\t\t\t\t\t\t      Shayed Hasan Shakib \n\t\t\t\t\t\t        203-15-3878 PC-A");
     Sleep(1000);
-    printf("\n\n\t\t\t\t\t\t    Mostafizur Rahman Mohor \n\t\t\t\t\t\t       203-15-3878 PC-A");
+    printf("\n\n\t\t\t\t\t\t    Mostafizur Rahman Mohor \n\t\t\t\t\t\t       203-15-3875 PC-A");
     Sleep(1000);
     printf("\n\n\n\t\t\t\t\t\t\t    Thank You\n");
-    
-    getch();
     Sleep(2000);
-    return 0;
+    //exit(0);
 }
